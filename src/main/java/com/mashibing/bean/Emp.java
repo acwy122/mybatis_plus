@@ -1,4 +1,4 @@
-package com.mahsibing.bean;
+package com.mashibing.bean;
 
 import java.io.Serializable;
 import java.util.Date;

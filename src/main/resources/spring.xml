@@ -5,6 +5,7 @@
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <context:component-scan base-package="com.mashibing"></context:component-scan>
     <!--引入外部配置文件-->
     <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
     <!--配置数据源-->
@@ -24,9 +25,10 @@
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
         <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--<property name="mapperLocations" value="classpath:com/mashibing/dao/*.xml"></property>-->
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.mahsibing.dao"></property>
+        <property name="basePackage" value="com.mashibing.dao"></property>
     </bean>
 
 </beans>
