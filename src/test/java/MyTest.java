@@ -1,4 +1,5 @@
 import com.alibaba.druid.pool.DruidDataSource;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mashibing.bean.Emp;
 import com.mashibing.dao.EmpDao;
@@ -63,6 +64,11 @@ public class MyTest {
         List<Emp> emps = empDao.selectEmpByList();
         System.out.println(emps);
 
+    }
+
+    @Test
+    public void test06(){
+        QueryWrapper wrapper = new QueryWrapper();
     }
 
 }
