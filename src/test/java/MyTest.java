@@ -57,8 +57,8 @@ public class MyTest {
 
         //在使用分页的时候，必须添加一个插件com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor
         EmpDao empDao = context.getBean("empDao", EmpDao.class);
-        Page<Emp> empPage = empDao.selectPage(new Page<Emp>(2,2),null);
-        System.out.println(empPage.getRecords());
+//        Page<Emp> empPage = empDao.selectPage(new Page<Emp>(2,2),null);
+//        System.out.println(empPage.getRecords());
 
         List<Emp> emps = empDao.selectEmpByList();
         System.out.println(emps);

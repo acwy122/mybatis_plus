@@ -25,7 +25,7 @@
     <bean id="sqlSessionFactoryBean" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
         <property name="configLocation" value="classpath:mybatis-config.xml"></property>
-        <!--<property name="mapperLocations" value="classpath:com/mashibing/dao/*.xml"></property>-->
+        <property name="mapperLocations" value="classpath:com/mashibing/dao/*.xml"></property>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.mashibing.dao"></property>
