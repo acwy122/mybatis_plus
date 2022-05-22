@@ -1,4 +1,5 @@
 import com.alibaba.druid.pool.DruidDataSource;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mashibing.bean.Emp;
 import com.mashibing.dao.EmpDao;
 import org.junit.Test;
@@ -48,6 +49,19 @@ public class MyTest {
         emp.setJob("646465");
         int insert = empDao.updateById(emp);
         System.out.println(insert);
+
+    }
+
+    @Test
+    public void test05(){
+
+        //在使用分页的时候，必须添加一个插件com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor
+        EmpDao empDao = context.getBean("empDao", EmpDao.class);
+        Page<Emp> empPage = empDao.selectPage(new Page<Emp>(2,2),null);
+        System.out.println(empPage.getRecords());
+
+        List<Emp> emps = empDao.selectEmpByList();
+        System.out.println(emps);
 
     }
 
