@@ -1,10 +1,19 @@
 package com.mashibing.bean;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@TableName("emp")
 public class Emp implements Serializable {
 
+    /**
+     * 在mybatis-plus2.x版本的时候，如果设置表自增，那么id必须指定为auto类型，否则插入不成功，3.x不存在此问题
+     */
+    @TableId(value = "empno" ,type = IdType.AUTO)
     private Integer empno;
     private String ename;
     private String job;
@@ -12,7 +21,7 @@ public class Emp implements Serializable {
     private Date hiredate;
     private Double sal;
     private Double comm;
-    private Integer deptNo;
+    private Integer deptno;
 
     public Integer getEmpno() {
         return empno;
@@ -70,12 +79,12 @@ public class Emp implements Serializable {
         this.comm = comm;
     }
 
-    public Integer getDeptNo() {
-        return deptNo;
+    public Integer getDeptno() {
+        return deptno;
     }
 
-    public void setDeptNo(Integer deptNo) {
-        this.deptNo = deptNo;
+    public void setDeptno(Integer deptno) {
+        this.deptno = deptno;
     }
 
     @Override
@@ -88,7 +97,7 @@ public class Emp implements Serializable {
                 ", hiredate=" + hiredate +
                 ", sal=" + sal +
                 ", comm=" + comm +
-                ", deptNo=" + deptNo +
+                ", deptno=" + deptno +
                 '}';
     }
 }

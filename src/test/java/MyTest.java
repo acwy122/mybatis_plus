@@ -19,14 +19,35 @@ public class MyTest {
 
     @Test
     public void test02(){
-
         EmpDao empDao = context.getBean("empDao", EmpDao.class);
-        Emp emp = empDao.selectById(1);
+        //Emp emp = empDao.selectById(1);
         List<Emp> emps = empDao.selectList(null);
         for (Emp emppp:emps) {
             System.out.println(emppp);
         }
+    }
+    @Test
+    public void test03(){
+        EmpDao empDao = context.getBean("empDao", EmpDao.class);
+        Emp emp = new Emp();
+        emp.setEname("lisi");
+        emp.setDeptno(1);
+        emp.setJob("fasdfa");
+        int insert = empDao.insert(emp);
+        System.out.println(insert);
 
+    }
+
+    @Test
+    public void test04(){
+        EmpDao empDao = context.getBean("empDao", EmpDao.class);
+        Emp emp = new Emp();
+        emp.setEmpno(555);
+        emp.setEname("lisi");
+        emp.setDeptno(1);
+        emp.setJob("646465");
+        int insert = empDao.updateById(emp);
+        System.out.println(insert);
 
     }
 
